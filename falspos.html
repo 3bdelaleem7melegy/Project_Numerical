@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>False-position</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/math/mathquill.css" />
+	<link rel="stylesheet" href="assets/math/matheditor.css" />
+
+
+
+</head>
+
+<body class="is-preload">
+
+	<div id="content">
+
+
+		<div class="inner">
+
+			<div align="center">
+				<header style="font-size: 70px;font-weight: 700px; color: #c94663;">False position method</header>
+				<div id="errormsg"></div>
+				<table class="input"  style="color: #c94663;">
+					<thead>
+						<tr>
+							<div id="mathfield" style="width:50%;"></div>
+							<div id="hidden" style="display:none;"></div>
+						</tr>
+					</thead>
+					<tbody  style="background-color: black;">
+						<tr>
+							<td>Xl: <input  id="xl" ></td>
+							<td>Error: <input type="text" id="eps" ></td>
+						</tr>
+						<tr  style="background-color: black;">
+							<td>Xu: <input id="xu" ></td>
+							<td>Max iterations: <input  id="maxiter" ></td>
+						</tr>
+					</tbody>
+					<tfoot style="background-color: black;">
+						<tr>
+							<td>Root = <label id="root"></label></td>
+							<td> </td>
+						</tr>
+					</tfoot>
+				</table>
+
+				<button id="demo" onclick="x(mE.getValue()); clrtab(); falsepos(xl.value, xu.value, eps.value);">Calculate</button>
+				<br>
+
+				<table class="output" id="disp"  style="color: #c94663;">
+					<thead>
+						<tr>
+							<th>I</th>
+							<th>Xl</th>
+							<th>f(Xl)</th>
+							<th>Xu</th>
+							<th>f(Xu)</th>
+							<th>Xr</th>
+							<th>f(Xr)</th>
+							<th>Error%</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+	
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/math.js"></script>
+	<script src="assets/math/latex-to-js.js"></script>
+	<script src="assets/math/mathquill.js"></script>
+	<script src="assets/math/matheditor.js"></script>
+	<script> //Work-around for Chrome CORS support
+		var mE = new MathEditor('mathfield');
+		function x(x) {
+			var span = document.getElementById('hidden');
+			z = latex_to_js(x);
+			span.innerHTML = z;
+			return x;
+		}	
+
+		
+
+	</script>
+
+
+</body>
+
+</html>
